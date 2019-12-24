@@ -24,9 +24,14 @@ while folder <= 269:
         voiceDict[key_].append(data)
     folder += 1
 #print(voiceDict)
-featuresDict = {'id'+str(i) : [] for i in range(1,270)}
+pdDict,featuresDict = {'id'+str(i) : [] for i in range(1,270)},{'id'+str(i) : [] for i in range(1,270)}
 for i in voiceDict:
     for j in voiceDict[i]:
         features = lbs.feature.mfcc(y=j, sr=samplerate, S=None, n_mfcc=13, dct_type=2, norm='ortho', lifter=0,)
         featuresDict[i].append(features.T)
-#print(len(featuresDict['id1'][0][0]))
+print(featuresDict['id1'][0][0])
+for k in featuresDict:
+    for m in featuresDict[k]:
+        for l in m:
+            pdDict[k].append(list(l))
+print(len(pdDict['id1']))
