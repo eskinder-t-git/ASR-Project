@@ -35,3 +35,8 @@ for k in featuresDict:
         for l in m:
             pdDict[k].append(list(l))
 print(len(pdDict['id1']))
+
+#dictionary to dataframe
+dicttolist = [[key,i[0],i[1],i[2],i[3],i[4],i[5],i[6],i[7],i[8],i[9],i[10],i[11],i[12]] for key,value in pdDict.items() for i in value]
+col=['Label','mfcc1','mfcc2','mfcc3','mfcc4','mfcc5','mfcc6','mfcc7','mfcc8','mfcc9','mfcc10','mfcc11','mfcc12','mfcc13']
+DataFrame=pd.DataFrame(dicttolist,columns=col)
